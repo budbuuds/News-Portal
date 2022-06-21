@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class TulisBerita extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('berita', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('judul');
+            $table->string('kategori');
+            $table->string('gambar');
+            $table->text('isi');
+            $table->string('status');
+            $table->string('penulis');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('berita');
+    }
+}
